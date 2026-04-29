@@ -51,20 +51,20 @@ class Account {
         setBalance(balance);
     }
 
-    public void deposit(double ammount) {
-        if (ammount <= 0) {
+    public void deposit(double amount) {
+        if (amount <= 0) {
             throw new IllegalArgumentException("Invalid deposit");
         }
-        this.balance += ammount;
+        this.balance += amount;
     }
 
-    public void withdraw(double ammount) {
-        if (ammount < 0) {
+    public void withdraw(double amount) {
+        if (amount < 0) {
             throw new IllegalArgumentException("Invalid withdrawal");
-        } else if (ammount > this.balance) {
+        } else if (amount > this.balance) {
             throw new IllegalArgumentException("Insufficient funds");
         }
-        this.balance -= ammount;
+        this.balance -= amount;
     }
 
     public void display() {
@@ -144,13 +144,13 @@ class CurrentAccount extends Account {
     }
 
     @Override
-    public void withdraw(double ammount) {
-        if (ammount > getBalance() + overdraftLimit) {
+    public void withdraw(double amount) {
+        if (amount > getBalance() + overdraftLimit) {
             throw new IllegalArgumentException("Overdraft exceeded");
-        } else if (ammount < 0) {
+        } else if (amount < 0) {
             throw new IllegalArgumentException("Invalid withdrawal");
         }
-        setBalance(getBalance() - ammount);
+        setBalance(getBalance() - amount);
     }
 
     @Override
