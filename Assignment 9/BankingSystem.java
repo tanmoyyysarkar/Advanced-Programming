@@ -1,7 +1,13 @@
+import java.util.ArrayList;
+
 class Account {
     private String accountNumber;
     private String ownerName;
     private double balance;
+
+    protected void updateBalance(double balance) {
+        this.balance = balance;
+    }
 
     public double getBalance() {
         return balance;
@@ -17,9 +23,9 @@ class Account {
 
     public void setBalance(double balance) {
         if (balance >= 0) {
-            this.balance = balance;
+            updateBalance(balance);
         } else {
-            this.balance = 0;
+            updateBalance(0);
         }
     }
 
@@ -62,7 +68,7 @@ class Account {
     }
 
     public void display() {
-        System.out.printf("\n%-15s | %-20s | %12s%n", "Account No.", "Owner Name", "Balance");
+        System.out.printf("%-15s | %-20s | %12s%n", "Account No.", "Owner Name", "Balance");
         System.out.println("---------------------------------------------------------");
         System.out.printf("%-15s | %-20s | $%,11.2f%n\n",
                 this.accountNumber,
@@ -102,7 +108,7 @@ class SavingsAccount extends Account {
 
     @Override
     public void display() {
-        System.out.printf("\n%-15s | %-20s | %12s | %13s%n",
+        System.out.printf("%-15s | %-20s | %12s | %13s%n",
                 "Account No.", "Owner Name", "Balance", "Interest Rate");
         System.out.println("-----------------------------------------------------------------------");
         System.out.printf("%-15s | %-20s | $%,11.2f | %12.2f%%%n\n",
@@ -113,11 +119,101 @@ class SavingsAccount extends Account {
     }
 }
 
+class CurrentAccount extends Account {
+    private double overdraftLimit;
+
+    public CurrentAccount() {
+        super();
+        this.overdraftLimit = 0;
+    }
+
+    public CurrentAccount(String accNo, String name, double balance, double overdraftLimit) {
+        super(accNo, name, balance);
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    public void setOverdraftLimit(double overdraftLimit) {
+        if (overdraftLimit < 0) {
+            throw new IllegalArgumentException("Invalid overdraft limit");
+        }
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    public double getOverdraftLimit() {
+        return overdraftLimit;
+    }
+
+    @Override
+    public void withdraw(double ammount) {
+        if (ammount > getBalance() + overdraftLimit) {
+            throw new IllegalArgumentException("Overdraft exceeded");
+        }
+        setBalance(getBalance() - ammount);
+    }
+
+    @Override
+    public void setBalance(double balance) {
+        if (balance < -overdraftLimit) {
+            throw new IllegalArgumentException("Overdraft exceeded");
+        }
+        updateBalance(balance);
+    }
+
+    @Override
+    public void display() {
+        System.out.printf("%-15s | %-20s | %12s | %13s%n",
+                "Account No.", "Owner Name", "Balance", "Overdraft Limit");
+        System.out.println("-----------------------------------------------------------------------");
+        System.out.printf("%-15s | %-20s | $%,11.2f | %12.2f%n\n",
+                this.getAccountNumber(),
+                this.getOwnerName(),
+                this.getBalance(),
+                this.getOverdraftLimit());
+    }
+}
+
 class Main {
     public static void main(String[] args) {
-        Account acc1 = new Account();
-        acc1.display();
-        SavingsAccount acc2 = new SavingsAccount();
-        acc2.display();
+        SavingsAccount savings = new SavingsAccount("SA1001", "Aarav", 5000, 4.5f);
+        CurrentAccount current = new CurrentAccount("CA2001", "Ishita", 2000, 1500);
+
+        System.out.println("INITIAL ACCOUNT DETAILS");
+        savings.display();
+        current.display();
+
+        System.out.println("SAVINGS ACCOUNT OPERATIONS");
+        savings.deposit(1000);
+        savings.withdraw(700);
+        double interest = savings.calculateInterest();
+        savings.deposit(interest);
+        System.out.printf("Interest credited: $%,.2f%n", interest);
+        savings.display();
+
+        System.out.println("CURRENT ACCOUNT OPERATIONS");
+        current.withdraw(3000);
+        current.display();
+
+        System.out.println("EXCEPTION HANDLING DEMO");
+        try {
+            savings.withdraw(100000);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Savings withdrawal error: " + e.getMessage());
+        }
+
+        try {
+            current.withdraw(1000);
+            current.withdraw(3000);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Current withdrawal error: " + e.getMessage() + "\n");
+        }
+
+        ArrayList<Account> accounts = new ArrayList<>();
+        accounts.add(savings);
+        accounts.add(current);
+
+        System.out.println("FINAL ACCOUNT SNAPSHOT");
+        for (Account account : accounts) {
+            account.display();
+        }
     }
 }
