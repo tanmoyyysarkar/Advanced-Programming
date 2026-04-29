@@ -30,7 +30,7 @@ class Account {
     }
 
     public void setOwnerName(String name) {
-        if (name == "") {
+        if (name == null || name.isBlank()) {
             this.ownerName = "Unknown";
         } else {
             this.ownerName = name;
@@ -52,7 +52,7 @@ class Account {
     }
 
     public void deposit(double ammount) {
-        if (ammount < 0) {
+        if (ammount <= 0) {
             throw new IllegalArgumentException("Invalid deposit");
         }
         this.balance += ammount;
@@ -147,6 +147,8 @@ class CurrentAccount extends Account {
     public void withdraw(double ammount) {
         if (ammount > getBalance() + overdraftLimit) {
             throw new IllegalArgumentException("Overdraft exceeded");
+        } else if (ammount < 0) {
+            throw new IllegalArgumentException("Invalid withdrawal");
         }
         setBalance(getBalance() - ammount);
     }
