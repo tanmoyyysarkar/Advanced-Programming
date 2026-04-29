@@ -29,7 +29,7 @@ abstract class LibraryItem {
         }
     }
 
-    public LibraryItem(String title, int year){
+    public LibraryItem(String title, int year) {
         setTitle(title);
         setYear(year);
         count++;
@@ -64,7 +64,7 @@ class Book extends LibraryItem {
 
     @Override
     public void displayInfo() {
-        System.out.println(title + " by " + author);
+        System.out.println(getTitle() + " (" + getYear() + ") by " + getAuthor());
     }
 }
 
@@ -96,7 +96,7 @@ class DVD extends LibraryItem {
         }
     }
 
-    public DVD(String title, int year, int duration, String genre){
+    public DVD(String title, int year, int duration, String genre) {
         super(title, year);
         setDuration(duration);
         setGenre(genre);
@@ -104,12 +104,12 @@ class DVD extends LibraryItem {
 
     @Override
     public void displayInfo() {
-        System.out.println(title + " - " + genre);
+        System.out.println(getTitle() + " (" + getYear() + "), " + getGenre() + ", " + getDuration() + " mins");
     }
 }
 
 class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ArrayList<LibraryItem> items = new ArrayList<>();
 
         items.add(new Book("The Great Gatsby", 1925, "F. Scott Fitzgerald"));
@@ -121,7 +121,7 @@ class Main {
         items.add(new DVD("Pulp Fiction", 1994, 154, "Crime"));
 
         System.out.println("------ LIBRARY ITEMS ------\n");
-        for(LibraryItem item : items){
+        for (LibraryItem item : items) {
             item.displayInfo();
         }
 
