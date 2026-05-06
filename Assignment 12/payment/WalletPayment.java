@@ -2,7 +2,7 @@ package payment;
 
 import model.Order;
 
-// OCP: New payment method added — zero changes to existing code
+// OCP: New payment method added - zero changes to existing code
 public class WalletPayment implements PaymentProcessor {
 
     private double walletBalance;

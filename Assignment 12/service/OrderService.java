@@ -10,7 +10,7 @@ import java.util.List;
 
 /**
  * DIP: OrderService depends ONLY on abstractions (interfaces), never on concrete
- * classes.  All dependencies are injected through the constructor — the caller
+ * classes.  All dependencies are injected through the constructor - the caller
  * decides which implementations to use.
  *
  * SRP: This class only orchestrates the order workflow.  It does NOT know how
@@ -23,7 +23,7 @@ public class OrderService {
     private final List<NotificationService> notificationServices;
     private final OrderStorage        orderStorage;
 
-    // DIP: All concrete types injected from outside — OrderService never does "new XyzImpl()"
+    // DIP: All concrete types injected from outside - OrderService never does "new XyzImpl()"
     public OrderService(OrderProcessor orderProcessor,
                         PaymentProcessor paymentProcessor,
                         List<NotificationService> notificationServices,
@@ -35,7 +35,7 @@ public class OrderService {
     }
 
     /**
-     * Full order lifecycle: create → pay → notify → save.
+    * Full order lifecycle: create -> pay -> notify -> save.
      */
     public void processOrder(String orderId, String customerName,
                              String customerEmail, String customerPhone,
@@ -47,13 +47,13 @@ public class OrderService {
         System.out.println(" Payment Via : " + paymentProcessor.getPaymentMethod());
         System.out.println("========================================\n");
 
-        // Step 1 — Create Order
+        // Step 1 - Create Order
         System.out.println("--- Step 1: Creating Order ---");
         Order order = orderProcessor.createOrder(
                 orderId, customerName, customerEmail, customerPhone, baseAmount);
         System.out.println("Order created: " + order);
 
-        // Step 2 — Process Payment
+        // Step 2 - Process Payment
         System.out.println("\n--- Step 2: Processing Payment ---");
         boolean paymentSuccess = paymentProcessor.processPayment(order);
 
@@ -66,17 +66,17 @@ public class OrderService {
         order.setStatus("CONFIRMED");
         System.out.println("Payment SUCCESS.");
 
-        // Step 3 — Send Notifications
+        // Step 3 - Send Notifications
         System.out.println("\n--- Step 3: Sending Notifications ---");
         for (NotificationService ns : notificationServices) {
             ns.sendNotification(order);
-            System.out.println("  ✓ Notified via " + ns.getChannelName());
+            System.out.println("  - Notified via " + ns.getChannelName());
         }
 
-        // Step 4 — Save Order
+        // Step 4 - Save Order
         System.out.println("\n--- Step 4: Saving Order ---");
         orderStorage.saveOrder(order);
 
-        System.out.println("\n✅ Order " + orderId + " processed successfully!\n");
+        System.out.println("\nOrder " + orderId + " processed successfully!\n");
     }
 }

@@ -2,7 +2,7 @@ package payment;
 
 import model.Order;
 
-// LSP: Can be used anywhere a PaymentProcessor is expected — no surprises
+// LSP: Can be used anywhere a PaymentProcessor is expected - no surprises
 public class CreditCardPayment implements PaymentProcessor {
 
     @Override

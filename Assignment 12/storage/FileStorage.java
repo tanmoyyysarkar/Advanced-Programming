@@ -13,7 +13,7 @@ public class FileStorage implements OrderStorage {
     @Override
     public void saveOrder(Order order) {
         System.out.println("[FileStorage] Opening file: " + filePath);
-        System.out.println("[FileStorage] Appending record → "
+        System.out.println("[FileStorage] Appending record -> "
                 + order.getOrderId() + ","
                 + order.getCustomerName() + ","
                 + order.getAmount() + ","

@@ -2,7 +2,7 @@ package order;
 
 import model.Order;
 
-// LSP: Substitutable for OrderProcessor — creates an Order with no modification
+// LSP: Substitutable for OrderProcessor - creates an Order with no modification
 public class RegularOrder implements OrderProcessor {
 
     @Override
