@@ -1,0 +1,4 @@
+Timestamp,OrderId,CustomerName,CustomerEmail,CustomerPhone,Amount,Status
+2026-05-07 17:03:55,ORD-635335,John Smith,john@example.com,9876543210,32.75,CONFIRMED
+2026-05-07 17:04:56,ORD-696665,Test User,test@example.com,1234567890,25.99,CONFIRMED
+2026-05-07 17:05:24,ORD-724061,Test Name,test@test.com,1234567890,18.00,CONFIRMED

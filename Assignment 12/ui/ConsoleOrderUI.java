@@ -192,8 +192,7 @@ public class ConsoleOrderUI {
             return new DatabaseStorage();
         }
 
-        String path = readWithDefault("Enter file path", "orders/orders_log.csv");
-        return new FileStorage(path);
+        return new FileStorage();
     }
 
     private Set<Integer> parseSelections(String input, int maxOption) {
@@ -231,12 +230,6 @@ public class ConsoleOrderUI {
             }
             System.out.println("Input cannot be empty.");
         }
-    }
-
-    private String readWithDefault(String prompt, String defaultValue) {
-        System.out.print(prompt + " [" + defaultValue + "]: ");
-        String input = scanner.nextLine().trim();
-        return input.isEmpty() ? defaultValue : input;
     }
 
     private int readIntRange(String prompt, int min, int max) {
