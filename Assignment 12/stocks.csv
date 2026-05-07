@@ -1,0 +1,13 @@
+id,name,price,discounted
+S001,Wireless Mouse,25.99,false
+S002,Mechanical Keyboard,79.50,true
+S003,USB-C Charger,18.00,false
+S004,Noise Cancel Headphones,129.99,true
+S005,Laptop Stand,32.75,false
+S006,Webcam 1080p,49.90,false
+S007,Portable SSD 1TB,105.00,true
+S008,Smartphone Case,15.25,false
+S009,Bluetooth Speaker,55.00,true
+S010,Fitness Tracker,89.00,false
+S011,LED Desk Lamp,27.40,true
+S012,Ergonomic Chair,219.00,false
