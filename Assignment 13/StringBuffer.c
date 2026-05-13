@@ -2,19 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Dynamic string buffer structure with automatic growth capability
 typedef struct
 {
-    char *data;
-    size_t length;
-    size_t capacity;
-
+    char *data;      // Pointer to character data
+    size_t length;   // Current number of characters (excluding null terminator)
+    size_t capacity; // Total allocated space
 } StringBuffer;
 
+// Initialize a new StringBuffer with given capacity
 StringBuffer *sb_init(size_t initial_capacity)
 {
     if (initial_capacity == 0)
     {
-        initial_capacity = 1;
+        initial_capacity = 1; // Ensure minimum capacity of 1
     }
 
     // Allocating memory for string itself
@@ -46,12 +47,11 @@ StringBuffer *sb_init(size_t initial_capacity)
     return sb;
 }
 
+// Append a string to the buffer, doubling capacity if necessary
 StringBuffer *sb_append(StringBuffer *sb, const char *str)
 {
     size_t str_len = strlen(str);
-
-    // Total space needed including null terminator
-    size_t required = sb->length + str_len + 1;
+    size_t required = sb->length + str_len + 1; // Account for null terminator
 
     while (required > sb->capacity)
     {
@@ -76,16 +76,16 @@ StringBuffer *sb_append(StringBuffer *sb, const char *str)
     return sb;
 }
 
+// Free all allocated memory for the StringBuffer
 void sb_free(StringBuffer *sb)
 {
     if (sb == NULL)
-    {
         return;
-    }
-    free(sb->data);
-    free(sb);
+    free(sb->data); // Free the character buffer
+    free(sb);       // Free the struct itself
 }
 
+// Display the contents, length, and capacity of the StringBuffer
 void sb_print(StringBuffer *sb)
 {
     if (sb == NULL)
@@ -93,7 +93,6 @@ void sb_print(StringBuffer *sb)
         printf("\n\nStringBuffer is NULL\n");
         return;
     }
-
     printf("\n========== StringBuffer Contents ==========\n");
     printf("Contents: %s\n", sb->data);
     printf("Length: %zu\n", sb->length);
@@ -101,9 +100,10 @@ void sb_print(StringBuffer *sb)
     printf("========================================== \n\n");
 }
 
+// Main driver function with interactive menu for StringBuffer operations
 int main()
 {
-    StringBuffer *sb = sb_init(0);
+    StringBuffer *sb = sb_init(0); // Start with minimum capacity
 
     if (sb == NULL)
     {
