@@ -1,0 +1,5 @@
+1. Why race condition occurs:
+Ans. counter++ is not an atomic operation. It involves read, modify, and write steps. When multiple threads perform these steps simultaneously, updates can overlap and some increments are lost, producing incorrect output.
+
+2. How mutex solves it:
+Ans. A mutex enforces mutual exclusion for the critical section (counter update). Only one thread can modify the shared counter at a time, so no updates are lost and the final value becomes correct and deterministic.
