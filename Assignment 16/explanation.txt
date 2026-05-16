@@ -1,0 +1,2 @@
+Q. How synchronization prevents inconsistent behavior:
+Ans. Without synchronization, multiple threads could simultaneously modify buffer indexes and counters, causing lost updates, invalid reads/writes, or corrupted execution order. Semaphores enforce correct waiting/signaling behavior based on buffer state, and the mutex ensures only one thread modifies shared memory at a time inside the critical section. As a result, produced and consumed totals match correctly and execution remains consistent.
