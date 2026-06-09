@@ -1,16 +1,3 @@
-# CSBT215 - Advanced Programming
-## Assignment GitHub Repo
-
+# Assignment 3
 ---
-
-### Done by:
-Name: Tanmoy Sarkar
-Roll no: CSB24048
-Session: Spring 2026
-Program: B. Tech
-Department: Computer Science and Engineering
-
----
-
-#### `NOTE:` The main branch contains all the assignments and the rest of the branches contain thier corresponding assignments.
-
+## Write a Java program using ArrayList to store book titles. Add at least 5 books and search for books whose title contains a given word
