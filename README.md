@@ -1,16 +1,4 @@
-# CSBT215 - Advanced Programming
-## Assignment GitHub Repo
-
+# Assignment 5
 ---
-
-### Done by:
-Name: Tanmoy Sarkar
-Roll no: CSB24048
-Session: Spring 2026
-Program: B. Tech
-Department: Computer Science and Engineering
-
----
-
-#### `NOTE:` The main branch contains all the assignments and the rest of the branches contain thier corresponding assignments.
+## Create a simple React component that maintains a list of todos using useState. Allow the user to add a todo and display all added todos on the screen.
 
