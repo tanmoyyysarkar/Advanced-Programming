@@ -1,16 +1,3 @@
-# CSBT215 - Advanced Programming
-## Assignment GitHub Repo
-
+# Assignment 4
 ---
-
-### Done by:
-Name: Tanmoy Sarkar
-Roll no: CSB24048
-Session: Spring 2026
-Program: B. Tech
-Department: Computer Science and Engineering
-
----
-
-#### `NOTE:` The main branch contains all the assignments and the rest of the branches contain thier corresponding assignments.
-
+## Create a Python program using a list and dictionary to store products with name and stock quantity. Display all products whose stock is less than 10.
