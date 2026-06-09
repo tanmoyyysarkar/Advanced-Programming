@@ -1,16 +1,27 @@
-# CSBT215 - Advanced Programming
-## Assignment GitHub Repo
-
+# Assignment 6
 ---
+Develop a student performance analyzer in Java. You are given a list of students of your batch. Each student has:
+- id (int) //don't include CSB string
+- name (String)
+- courses (List<String>)
+- scores (Map<String, Integer>) where key = course, value = marks
 
-### Done by:
-Name: Tanmoy Sarkar
-Roll no: CSB24048
-Session: Spring 2026
-Program: B. Tech
-Department: Computer Science and Engineering
+Do:
+1. Store students using appropriate collections.
+2. Implement the following methods:
+    - List<Student> getTopNStudents(List<Student> students, int n);
+    - Map<String, Double> getAverageScorePerCourse(List<Student> students);
+    - Set<String> getAllUniqueCourses(List<Student> students);
 
----
+Must use:
 
-#### `NOTE:` The main branch contains all the assignments and the rest of the branches contain thier corresponding assignments.
+1. Use ArrayList, HashMap, and HashSet
+2. Use Streams for aggregation and filtering
+3. Sort students by average score (descending)
+4. Use Comparator
+5. Handle missing course scores using getOrDefault
+6. Ensure type safety using generics
 
+Perform complexity analysis:
+1. What is the time complexity of computing course averages?
+2. What is the complexity of sorting top N students?
