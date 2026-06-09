@@ -1,7 +1,0 @@
-Timestamp,OrderId,CustomerName,CustomerEmail,CustomerPhone,Amount,Status
-2026-05-07 16:55:19,ORD-119171,John Doe,john@example.com,9876543210,121.63,CONFIRMED
-2026-05-07 16:55:57,ORD-157656,Jane Smith,jane@example.com,8765432109,116.99,CONFIRMED
-2026-05-07 17:04:29,ORD-669652,Alice Johnson,alice@example.com,9876543210,219.00,CONFIRMED
-2026-05-07 17:04:39,ORD-679046,Mike Brown,mike@example.com,9876543210,66.98,CONFIRMED
-2026-05-07 17:04:48,ORD-688155,Mike Brown,mike@example.com,9876543210,66.98,CONFIRMED
-2026-05-07 17:06:29,ORD-789520,tuna,mayo@tuna.com,127364,32.75,CONFIRMED
