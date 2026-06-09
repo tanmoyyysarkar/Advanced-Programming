@@ -1,16 +1,19 @@
-# CSBT215 - Advanced Programming
-## Assignment GitHub Repo
+# Assignment 10:
 
----
+Design a `student` system in Python with:
 
-### Done by:
-Name: Tanmoy Sarkar
-Roll no: CSB24048
-Session: Spring 2026
-Program: B. Tech
-Department: Computer Science and Engineering
+- Address class (`street`, `city`, `zipCode`)
+- Student class with `name`, `age`, `Address`, and `course list`
+- Store `age` as a `protected` attribute and control it using `@property`
+- Methods: `add_course()` and `display()`
 
----
+Extend it with:
 
-#### `NOTE:` The main branch contains all the assignments and the rest of the branches contain thier corresponding assignments.
+`ScholarshipStudent` (**add** `scholarshipAmount` and **override** `display()`)
 
+Your implementation should clearly show:
+
+- `Composition` (Student HAS-A Address)
+- Proper data `validation` using `@property` (age must be valid)
+- `Inheritance` and overriding (use `super()` in `display`)
+- Understanding of `mutable` behavior (course list updates persist)
