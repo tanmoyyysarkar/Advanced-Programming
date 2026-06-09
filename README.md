@@ -1,16 +1,19 @@
-# CSBT215 - Advanced Programming
-## Assignment GitHub Repo
-
+# Question 11:
 ---
+Design a library system in `Java` or `Python` with:
 
-### Done by:
-Name: Tanmoy Sarkar
-Roll no: CSB24048
-Session: Spring 2026
-Program: B. Tech
-Department: Computer Science and Engineering
+A **base/abstract** `class LibraryItem (common fields like title, year)`
+An **abstract/common** method `displayInfo()`
 
----
+Create subclasses such as:
 
-#### `NOTE:` The main branch contains all the assignments and the rest of the branches contain thier corresponding assignments.
+- Book (add author)
+- DVD (add duration/genre)
 
+Your implementation should clearly show:
+
+- Use of abstraction (common structure in base class)
+- Method overriding in subclasses
+- Polymorphism using a collection of LibraryItem objects
+- One additional feature:
+- constructor overloading / default arguments OR class/static counter
