@@ -1,9 +1,0 @@
-[2026-05-07 16:55:19] To: john@example.com | Order: ORD-119171 | Amount: 121.63 | Status: CONFIRMED | Message: Order confirmed.
-[2026-05-07 16:55:57] To: jane@example.com | Order: ORD-157656 | Amount: 116.99 | Status: CONFIRMED | Message: Order confirmed.
-[2026-05-07 16:58:40] To: Tuna@mayo.com | Order: ORD-320071 | Amount: 372.30 | Status: CONFIRMED | Message: Order confirmed.
-[2026-05-07 17:03:55] To: john@example.com | Order: ORD-635335 | Amount: 32.75 | Status: CONFIRMED | Message: Order confirmed.
-[2026-05-07 17:04:29] To: alice@example.com | Order: ORD-669652 | Amount: 219.00 | Status: CONFIRMED | Message: Order confirmed.
-[2026-05-07 17:04:39] To: mike@example.com | Order: ORD-679046 | Amount: 66.98 | Status: CONFIRMED | Message: Order confirmed.
-[2026-05-07 17:04:48] To: mike@example.com | Order: ORD-688155 | Amount: 66.98 | Status: CONFIRMED | Message: Order confirmed.
-[2026-05-07 17:04:56] To: test@example.com | Order: ORD-696665 | Amount: 25.99 | Status: CONFIRMED | Message: Order confirmed.
-[2026-05-07 17:05:24] To: test@test.com | Order: ORD-724061 | Amount: 18.00 | Status: CONFIRMED | Message: Order confirmed.
