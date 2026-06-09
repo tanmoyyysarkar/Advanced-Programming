@@ -1,16 +1,3 @@
-# CSBT215 - Advanced Programming
-## Assignment GitHub Repo
-
+# Assignment 2
 ---
-
-### Done by:
-Name: Tanmoy Sarkar
-Roll no: CSB24048
-Session: Spring 2026
-Program: B. Tech
-Department: Computer Science and Engineering
-
----
-
-#### `NOTE:` The main branch contains all the assignments and the rest of the branches contain thier corresponding assignments.
-
+## Write a c program for three different operations as stated in question 1 to analyze the space complexity.
